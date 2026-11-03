@@ -10,10 +10,7 @@
 .hero .fine { margin-top: 20px; }
 .section-head .sub { margin-top: 16px; }
 .cpanel-copy p { margin-top: 16px; }
-.get-inner img { margin-bottom: 24px; }
-.get-inner .sub { margin: 16px auto 28px; }
-.price { margin-bottom: 28px; }
-.get-inner .fine { margin-top: 20px; }
+
 .tour { margin-top: 56px; text-align: left; scroll-margin-top: 84px; }
 
 /* Tab bars sit in the middle, and a tab never shrinks below its name. */
@@ -87,6 +84,19 @@
 .section, .stats, .feature, .faq { padding: 88px 0 0; }
 .get { padding-bottom: 0; }
 .faq { padding-bottom: 104px; }
+
+/* The window's title never wraps; in the Quick Look box the search field makes room for it. */
+.zw-title { flex: none; white-space: nowrap; }
+.ql-win .zw-search { display: none; }
+
+/* ---------- The price: the number is the headline ---------- */
+.get-inner { padding: 56px 32px 60px; }
+.get-inner img { width: 72px; height: 72px; margin-bottom: 24px; border-radius: 18px; }
+.get-inner .kicker { color: var(--brand); margin-bottom: 14px; }
+.get-inner .price { display: block; margin: 0; font-size: clamp(56px, 7vw, 80px); line-height: 1; letter-spacing: -0.04em; font-weight: 800; }
+.get-inner .price .amount { font-size: inherit; }
+.get-inner .sub { margin: 16px auto 28px; max-width: 420px; font-size: 18px; color: var(--ink-2); }
+.get-inner .fine { margin-top: 20px; }
 
 /* ---------- Feature sections: one box each, the words on one side and the picture on the other ---------- */
 .fbox { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; padding: 40px 40px 40px 56px; border-radius: var(--radius); background: linear-gradient(180deg, var(--card-top), var(--card-bottom)); border: 1px solid var(--line-2); box-shadow: var(--shadow-card); }
