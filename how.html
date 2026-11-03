@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How Zipling works</title>
-  <meta name="description" content="What is new in Zipling's engine, what each idea is worth in plain numbers, and where it is still behind.">
+  <meta name="description" content="Three parts of Zipling's engine are its own: a JPEG coder that beats the best published one, a pixel coder for screenshots, and archives that repair themselves. The rest is proven parts, chosen by the numbers. Where it is still behind, too.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="next.css">
   <link rel="stylesheet" href="c.css">
+  <link rel="stylesheet" href="tour.css">
   <link rel="stylesheet" href="pages.css">
   <script>document.documentElement.classList.add("js")</script>
   <script src="next.js" defer></script>
@@ -37,103 +38,137 @@
       <div class="wrap">
         <p class="kicker reveal">How it works</p>
         <h1 class="reveal">Most archivers squeeze bytes.<br><span class="grad">Zipling reads the file first.</span></h1>
-        <p class="lede reveal">Seven ideas make Zipling's archives smaller and faster than a zip. Here is what each one does, what it is worth in real numbers, and where it is still behind. All of it measured, every archive checked byte for byte.</p>
+        <p class="lede reveal">Three parts of Zipling's engine are its own, built from scratch and measured against the best there is. The rest is proven parts, chosen because the numbers said so. Every figure here comes from the published benchmarks, with every archive extracted and compared byte for byte.</p>
       </div>
     </section>
 
-    <section class="section ideas">
+    <!-- ============================== Ours ============================== -->
+    <section class="section ideas" id="ours">
       <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">What is ours</p>
+          <h2>Three things no other archiver has.</h2>
+        </header>
         <ol class="idea-list">
           <li class="idea reveal">
             <div class="idea-num">1</div>
             <div class="idea-body">
-              <h2>It re-encodes photos, without losing a bit.</h2>
-              <p>A JPEG is already compressed, so zipping it saves almost nothing. Zipling takes the numbers inside the JPEG apart and stores them with a coder built for exactly that kind of data. The photo comes back as the same file, bit for bit, and Zipling checks that before it keeps the smaller form.</p>
+              <h2>A JPEG coder that beats the best there is.</h2>
+              <p>A photo is already compressed, so a zip saves almost nothing on it. Zipling takes the numbers inside the JPEG apart and codes them with a coder of its own. It is smaller than Lepton, the coder Dropbox and Microsoft built for exactly this job and the best published one, and it decodes three and a half times faster. It also sees something no other JPEG coder models: in a typical photo, more than half of the 8-by-8 blocks repeat an earlier block exactly, and Zipling stores those as a reference. The photo comes back bit for bit, and Zipling proves that before it keeps the smaller form.</p>
               <div class="idea-facts">
-                <div><b>26%</b><span>smaller than Finder's zip on a folder of photos</span></div>
-                <div><b>19%</b><span>smaller than 7-Zip's best setting</span></div>
-                <div><b>30%</b><span>saved on a typical JPEG</span></div>
+                <div><b>2.5%</b><span>smaller than Lepton on the same 382 photos</span></div>
+                <div><b>3.5×</b><span>faster to decode than Lepton</span></div>
+                <div><b>27%</b><span>off the photos: 94.7 MB to 69.0 MB</span></div>
+                <div><b>388 of 388</b><span>test photos back bit for bit</span></div>
               </div>
-              <p class="honest"><b>The honest bit.</b> This coder is for JPEGs. PNG screenshots and graphics have a coder of their own (next idea). HEIC photos from an iPhone are stored as they are.</p>
+              <p class="peer">Measured against Lepton 0.5.8 on 382 baseline photos, one thread each. Zipling keeps Lepton as a fallback for progressive JPEGs and the few photos where it does better.</p>
             </div>
           </li>
           <li class="idea reveal">
             <div class="idea-num">2</div>
             <div class="idea-body">
-              <h2>It unpacks what is already compressed.</h2>
-              <p>PDFs, PNGs, Office documents and disk images hide old, weak compression inside. Zipling undoes it exactly, compresses the raw data with a modern codec, and on the way out re-creates the original stream, byte for byte.</p>
-              <p>Photo-like PNGs go one step further at the Max setting. Once unpacked, Zipling's own pixel coder predicts each pixel from its neighbours and stores only the difference: 19% smaller than the strongest general-purpose compressor on the same pixels, and faster. Flat screenshots do as well with the general codec, so Zipling picks per image whichever is smaller.</p>
+              <h2>A pixel coder for screenshots and graphics.</h2>
+              <p>A PNG or a PDF hides old, weak compression inside. Zipling undoes it exactly, and that alone makes screenshots and PDFs 56% smaller than a zip. At the Max setting it goes further: its own pixel coder predicts each pixel from its neighbours and stores only the difference, 19% smaller than xz, the strongest general-purpose compressor, on the same pixels, and faster to decode. It is chosen image by image. Flat screenshots do as well with the general codec, so they stay there.</p>
               <div class="idea-facts">
                 <div><b>56%</b><span>smaller than Finder's zip on PDFs and screenshots</span></div>
-                <div><b>42%</b><span>smaller than 7-Zip's best on the same folder, at the default setting</span></div>
-                <div><b>¼</b><span>smaller disk images at Max</span></div>
+                <div><b>19%</b><span>smaller than xz at its best, on photo-like PNGs</span></div>
+                <div><b>100 MB/s</b><span>to decode, on one core</span></div>
+                <div><b>Every pixel</b><span>back exactly, and the PNG file with it</span></div>
               </div>
-              <p class="honest"><b>The honest bit.</b> This only works where Zipling can reproduce the original compressor exactly; a stream it cannot reproduce is stored as it is, so nothing is ever changed. The pixel coder stays off at the default setting, which keeps extraction quick: unpacking alone already makes screenshots 56% smaller than a zip there.</p>
+              <p class="peer">Measured against xz -9 on 439 PNGs. No other archiver codes pixels; they compress the PNG file as it is.</p>
             </div>
           </li>
           <li class="idea reveal">
             <div class="idea-num">3</div>
             <div class="idea-body">
-              <h2>It keeps one copy of repeated data.</h2>
-              <p>The same photo in two folders, the same library in three apps, the same header in a thousand files: Zipling finds data that repeats anywhere in what you are compressing and stores it once.</p>
-              <p class="honest"><b>The honest bit.</b> The gain depends entirely on your files. A folder with nothing repeated gains nothing here; a backup with old copies gains a lot.</p>
-            </div>
-          </li>
-          <li class="idea reveal">
-            <div class="idea-num">4</div>
-            <div class="idea-body">
-              <h2>It lines up app code.</h2>
-              <p>A Mac app is mostly machine code for Apple silicon. Zipling rewrites the jumps inside it so that similar instructions look the same, which lets the compressor see the repeats.</p>
+              <h2>Archives that repair themselves, even when bytes have moved.</h2>
+              <p>Tick one box and a Zipling archive carries its own repair data, 3% of its size unless you choose more. If a disk fails or a download breaks, Zipling finds the damaged slices by their checksums and rebuilds them exactly, even when the end of the file is missing. It also handles what most repair schemes cannot: bytes inserted or dropped in the middle. Every slice carries an anchor, so a slice that has shifted is found again and the file is brought back to its original layout. Damage beyond the budget is reported, not guessed: Zipling names the files that are lost.</p>
               <div class="idea-facts">
-                <div><b>35%</b><span>smaller than Finder's zip on eight Mac apps</span></div>
-                <div><b>9%</b><span>smaller than 7-Zip's best, in less than half the time</span></div>
+                <div><b>3%</b><span>of the archive repairs any 3% of damage, anywhere in it</span></div>
+                <div><b>1 to 50%</b><span>your choice, for the files that matter</span></div>
+                <div><b>49 s</b><span>to repair six damaged regions and a lost footer in a 17 GB archive, byte for byte</span></div>
+                <div><b>0 s</b><span>added to extraction: the record is read only when something fails</span></div>
               </div>
-              <p class="honest"><b>The honest bit.</b> Intel code is not filtered yet. Universal apps get the Apple silicon half treated and the Intel half compressed as it is.</p>
-            </div>
-          </li>
-          <li class="idea reveal">
-            <div class="idea-num">5</div>
-            <div class="idea-body">
-              <h2>It uses every core, all the time.</h2>
-              <p>Files stream into independent blocks that every core of your Mac compresses at once, and extraction works the same way. Nothing waits for a single slow step.</p>
-              <div class="idea-facts">
-                <div><b>0.5 s</b><span>to pack a 736 MB folder at Fast. Finder takes 24 s.</span></div>
-                <div><b>9 s</b><span>at the default setting, 34% smaller than Finder's zip</span></div>
-                <div><b>5×</b><span>faster to extract than Finder</span></div>
-              </div>
-              <p class="honest"><b>The honest bit.</b> Max is slower than the default: 19 s instead of 9 on that folder, for an archive 10% smaller. Still faster than Finder, and you can let Zipling shrink an archive to Max later, while the Mac is idle.</p>
-            </div>
-          </li>
-          <li class="idea reveal">
-            <div class="idea-num">6</div>
-            <div class="idea-body">
-              <h2>It carries its own repair data.</h2>
-              <p>Tick one box and a Zipling archive stores repair data inside itself, 3% of its size unless you choose more. If a disk fails or a download breaks, Zipling rebuilds the damaged parts exactly, even when the end of the file is missing or bytes have shifted. ZIP and 7z get a small recovery file beside them.</p>
-              <div class="idea-facts">
-                <div><b>3%</b><span>of the archive repairs up to 3% of damage, anywhere in it</span></div>
-                <div><b>1 to 50%</b><span>your choice, for files that matter</span></div>
-              </div>
-              <p class="honest"><b>The honest bit.</b> Damage beyond what the repair data covers is reported, not guessed: Zipling names the files that are lost.</p>
-            </div>
-          </li>
-          <li class="idea reveal">
-            <div class="idea-num">7</div>
-            <div class="idea-body">
-              <h2>It checks everything, twice.</h2>
-              <p>Every block carries a keyed checksum and the index a BLAKE3 hash. Zipling verifies them while it writes the archive and again while it extracts, and every transform above is proved by rebuilding the original before the smaller form is kept.</p>
-              <p class="honest"><b>The honest bit.</b> Zipling archives cannot be locked with a password yet; that is planned. For anything private today, choose ZIP or 7z, which Zipling encrypts with AES-256.</p>
+              <p class="peer">The only Mac archiver with repair data inside the archive; the one peer anywhere is WinRAR's recovery record. ZIP and 7z get a small recovery file beside them instead.</p>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="section behind">
+    <!-- ============================== Proven parts ============================== -->
+    <section class="section parts" id="parts">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Proven parts, chosen by the numbers</p>
+          <h2>The rest is well-known ideas, done properly.</h2>
+          <p class="sub">None of these is new on its own. No Mac archiver puts them together, and each earned its place in a benchmark.</p>
+        </header>
+        <div class="behind-grid">
+          <article class="behind-card reveal">
+            <h3>It reads the file first.</h3>
+            <p>Every file is identified by its bytes, never its name, and goes to a lane with the compressor that suits it: text, code, binaries, images, media that is already as small as it gets. Six lanes, each with its own codec.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.06s">
+            <h3>It keeps one copy of repeated data.</h3>
+            <p>Identical files, and identical pieces of big files, however far apart, are stored once. A backup with old copies gains a lot; a folder with nothing repeated gains nothing.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.12s">
+            <h3>It lines up app code.</h3>
+            <p>A Mac app is mostly machine code. Zipling rewrites the jumps inside it so repeats line up: 35% smaller than Finder's zip on eight Mac apps, 9% smaller than 7-Zip's best in less than half the time.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.18s">
+            <h3>It uses every core, all the time.</h3>
+            <p>Files stream into independent blocks that every core compresses at once, and extraction works the same way. A 736 MB folder is packed in 0.5 s at Fast and 9 s at the default setting. Finder takes 24 s.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.24s">
+            <h3>It picks the right codec for each lane.</h3>
+            <p>zstd where speed matters, LZMA where size does, and a BWT coder (libbsc) on text and code at Max, where it is 20% smaller than LZMA on text and 16 times faster to compress.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.3s">
+            <h3>It checks everything, twice.</h3>
+            <p>Every block carries a keyed checksum and the index a BLAKE3 hash, verified while the archive is written and again while it is extracted. Every transform above is proved by rebuilding the original before the smaller form is kept.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== What it adds up to ============================== -->
+    <section class="section adds" id="adds">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">What it adds up to</p>
+          <h2>Measured against everything, on nine folders.</h2>
+          <p class="sub">Finder, 7-Zip, WinRAR, zstd and xz at every setting they have, on the same Mac, every archive extracted and compared with the original.</p>
+        </header>
+        <div class="three">
+          <div class="stat reveal">
+            <p class="stat-num"><b data-count="135">0</b><span>of 144</span></p>
+            <h3>Rival results beaten</h3>
+            <p>Of 144 results the rivals produced, some Zipling setting is smaller, faster to make and faster to open than 135.</p>
+          </div>
+          <div class="stat reveal" style="--d:.1s">
+            <p class="stat-num"><b data-count="5.5" data-dec="1">0</b><span>×</span></p>
+            <h3>Faster than 7-Zip's best, and smaller</h3>
+            <p>The default setting packs the 736 MB folder to 214 MB in 8.8 s. 7-Zip Ultra takes 48.5 s for 235 MB.</p>
+          </div>
+          <div class="stat reveal" style="--d:.2s">
+            <p class="stat-num"><b data-count="18">0</b><span>%</span></p>
+            <h3>Smaller at Max</h3>
+            <p>Max packs the same folder to 193 MB in 19 s, in 40% of 7-Zip Ultra's time.</p>
+          </div>
+        </div>
+        <p class="footnote reveal"><a href="benchmarks.html">All six public benchmarks, with the method →</a> &nbsp;·&nbsp; <a href="arca.html">Inside the engine, for the technically curious →</a></p>
+      </div>
+    </section>
+
+    <!-- ============================== Behind ============================== -->
+    <section class="section behind" id="behind">
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker">Where it is still behind</p>
           <h2>Not everything, not yet.</h2>
-          <p class="sub">The same benchmarks that show the wins show these. They are measured on the same Mac, with every archive extracted and compared.</p>
+          <p class="sub">The same benchmarks that show the wins show these. Nothing on this page is hidden from them.</p>
         </header>
         <div class="behind-grid">
           <article class="behind-card reveal">
@@ -145,29 +180,40 @@
             <p>On 89 Rust crates the default is 3% bigger than 7-Zip's default (9.5 MB against 9.2 MB), in a seventh of the time. Max matches the best of xz at 8.3 MB.</p>
           </article>
           <article class="behind-card reveal" style="--d:.12s">
-            <h3>Intel Macs</h3>
-            <p>Zipling runs on Apple silicon today. An Intel build is planned, and the code filter for Intel apps with it.</p>
+            <h3>Photos that are not JPEGs</h3>
+            <p>The JPEG coder is for JPEGs. HEIC photos from an iPhone, and videos, are already as small as they get and are stored as they are.</p>
           </article>
           <article class="behind-card reveal" style="--d:.18s">
+            <h3>The pixel coder at the default setting</h3>
+            <p>It runs at Max only, which keeps the default setting's extraction quick. Unpacking the PNG alone already makes screenshots 56% smaller than a zip there.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.24s">
+            <h3>A password on Zipling archives</h3>
+            <p>Not yet; it is planned. For anything private today, choose ZIP or 7z, which Zipling locks with AES-256.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.3s">
+            <h3>Intel Macs</h3>
+            <p>Zipling runs on Apple silicon today. An Intel build is planned, and the code filter for Intel apps with it; a universal app gets only its Apple silicon half lined up for now.</p>
+          </article>
+          <article class="behind-card reveal" style="--d:.36s">
             <h3>RAR</h3>
             <p>Zipling opens RAR archives, including locked ones, but does not create them. RAR is proprietary; convert one to a Zipling archive or a zip instead.</p>
           </article>
-          <article class="behind-card reveal" style="--d:.24s">
+          <article class="behind-card reveal" style="--d:.42s">
             <h3>Ultra*</h3>
             <p>An experimental setting in the engine squeezes 0 to 3% more than Max for up to twice the time. It is not in the app and will not be until it earns its place.</p>
           </article>
-          <article class="behind-card reveal" style="--d:.3s">
+          <article class="behind-card reveal" style="--d:.48s">
             <h3>Numbers move</h3>
             <p>Times vary about 10% between runs, and the default setting's archive size varies by up to 0.3% because blocks are cut by whichever core gets there first. The files inside never vary.</p>
           </article>
         </div>
-        <p class="footnote reveal"><a href="benchmarks.html">All six benchmarks, with the method →</a> &nbsp;·&nbsp; <a href="arca.html">Inside the engine, for the technically curious →</a></p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="wrap footer-inner">
       <div class="footer-brand">
         <a class="brand" href="index.html"><img src="assets/icon-512.png" alt="" width="26" height="26"><span>Zipling</span></a>
         <p>Smaller archives for your Mac.<br>© 2026 Observant Systems</p>
