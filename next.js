@@ -54,15 +54,27 @@
       }
     }
   }, { threshold: 0.35 });
-  document.querySelectorAll("[data-scene]").forEach(el => player.observe(el));
+  document.querySelectorAll("[data-scene]").forEach(el => { if (!el.closest(".cpanel")) player.observe(el); });
 
-  // ---- The formats orbit needs its size in pixels for the chip positions.
-  const orbit = document.querySelector(".orbit-wrap");
-  if (orbit) {
-    const size = () => orbit.style.setProperty("--size", orbit.clientWidth + "px");
-    size();
-    addEventListener("resize", size);
-  }
+  // ---- The formats orbit needs its size in pixels for the chip positions. An orbit
+  // inside a hidden carousel panel has no width yet, so it is measured again when its
+  // panel shows.
+  const sizeOrbits = root => (root || document).querySelectorAll(".orbit-wrap").forEach(o => {
+    if (o.clientWidth) o.style.setProperty("--size", o.clientWidth + "px");
+  });
+  sizeOrbits();
+  addEventListener("resize", () => sizeOrbits());
+
+  // ---- Scenes inside a carousel (c.js) play when their panel shows and stop when it hides.
+  document.addEventListener("panel:show", e => {
+    sizeOrbits(e.target);
+    runCounters(e.target);
+    e.target.querySelectorAll('[data-scene="repair"]').forEach(startRepair);
+  });
+  document.addEventListener("panel:hide", e => {
+    e.target.querySelectorAll('[data-scene="repair"]').forEach(stopRepair);
+  });
+
 
   // ---- The repair scene: damage, sweep, repair, rest, again.
   const COLS = matchMedia("(max-width: 760px)").matches ? 16 : 24;

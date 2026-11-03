@@ -1,0 +1,131 @@
+/* The tour: what Zipling does, one idea per scene, in one box under the hero. Loaded after c.css. */
+
+.lede strong { color: var(--ink); font-weight: 650; }
+.hero { padding-bottom: 0; }
+/* The hero's own rhythm: icon, badge, headline, text, buttons, small print. */
+.hero-icon img { margin-bottom: 28px; }
+.eyebrow { margin-bottom: 28px; }
+.lede { margin-top: 24px; }
+.hero .cta { margin-top: 36px; }
+.hero .fine { margin-top: 20px; }
+.section-head .sub { margin-top: 16px; }
+.cpanel-copy p { margin-top: 16px; }
+.get-inner img { margin-bottom: 24px; }
+.get-inner .sub { margin: 16px auto 28px; }
+.price { margin-bottom: 28px; }
+.get-inner .fine { margin-top: 20px; }
+.tour { margin-top: 56px; text-align: left; scroll-margin-top: 84px; }
+
+/* Tab bars sit in the middle, and a tab never shrinks below its name. */
+.ctabs-wrap { text-align: center; }
+.ctabs .ctab { flex: none; }
+.tstage { min-height: 0; }
+
+/* A scene: the words on the left, one picture on the right. */
+.tscene { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; padding: 40px 40px 40px 56px; }
+.tscene-copy { min-width: 0; }
+.tscene-copy .kicker { color: var(--brand); margin-bottom: 14px; }
+.tscene-copy h3 { font-size: clamp(28px, 3.3vw, 38px); line-height: 1.1; letter-spacing: -0.03em; }
+.tscene-copy p:not(.kicker) { margin-top: 16px; color: var(--ink-2); font-size: 17px; line-height: 1.55; max-width: 400px; }
+.js .tscene.in .tscene-copy > * { animation: tup .4s cubic-bezier(.2,.8,.2,1) both; }
+.js .tscene.in .tscene-copy > :nth-child(2) { animation-delay: .06s; }
+.js .tscene.in .tscene-copy > :nth-child(3) { animation-delay: .12s; }
+@keyframes tup { from { opacity: 0; transform: translateY(12px); } }
+.tscene-vis { min-width: 0; display: grid; place-items: center; }
+.tscene-vis > * { width: 100%; max-width: 520px; min-width: 0; }
+.js .tscene.in .tscene-vis > * { animation: tup .45s cubic-bezier(.2,.8,.2,1) both .06s; }
+
+/* One quiet panel per scene, all the same height, its contents in the middle. */
+.tpanel { margin: 0; padding: 28px 30px; min-height: 330px; border-radius: 20px; background: var(--fill-1); border: 1px solid var(--line); display: grid; align-content: center; gap: 18px; }
+.tpanel > * { margin: 0; }
+.tpanel > .chip { justify-self: start; }
+.tpanel .card-head.small { margin-top: 2px; margin-bottom: -8px; }
+
+/* 1. Smaller: one folder, two sizes. */
+.vis-small .folder { gap: 16px; }
+.vis-small .folder-icon { width: 72px; height: 56px; }
+.vis-small .folder-icon::before { width: 30px; height: 13px; top: -9px; }
+.vis-small .folder-icon .f { width: 20px; height: 25px; }
+.vis-small .folder-icon .f1 { left: 8px; top: 11px; } .vis-small .folder-icon .f2 { left: 24px; top: 6px; } .vis-small .folder-icon .f3 { left: 40px; top: 9px; } .vis-small .folder-icon .f4 { left: 19px; top: 17px; }
+.vis-small .folder-text b { font-size: 18px; }
+.vis-small .bars { gap: 12px; }
+.vis-small .bar { grid-template-columns: 132px 1fr 92px; gap: 12px; font-size: 14px; }
+.vis-small .bar .track { height: 24px; }
+.vis-small .bar .track i { transition-duration: .7s; }
+.vis-small .bar .val { font-size: 15px; }
+
+/* 2. Faster: three lanes. */
+.vis-race .race { gap: 12px; }
+.vis-race .lane .track { height: 16px; border-radius: 8px; }
+
+/* 3. Opens anything: the orbit. */
+.tscene-vis .orbit-wrap { max-width: 340px; }
+
+/* 5. Shrink later: the re-packing chip turns into the result, on the same row. */
+.vis-later .later .archive { height: 56px; }
+.cond.swap { display: inline-grid; padding: 0; }
+.cond.swap > span { grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; }
+.cond.swap .ok { opacity: 0; }
+.cond.swap .ok svg { stroke-width: 2.6; }
+.in .cond.swap { animation: light .4s ease both, done-chip .4s ease both; animation-delay: var(--at), 3.9s; }
+.in .cond.swap .run { animation: swap-out .3s ease 3.9s both; }
+.in .cond.swap .ok { animation: swap-in .4s ease 3.9s both; }
+@keyframes done-chip { to { color: var(--good); background: var(--good-soft); border-color: var(--good-line); } }
+@keyframes swap-out { to { opacity: 0; } }
+@keyframes swap-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* 6. Every byte intact: four short promises. */
+.vis-safe { gap: 14px; padding: 24px 26px; }
+.vis-safe li { display: flex; gap: 14px; align-items: flex-start; }
+.vis-safe .safe-icon { width: 38px; height: 38px; border-radius: 10px; flex: none; }
+.vis-safe .safe-icon svg { width: 20px; height: 20px; }
+.vis-safe b { display: block; font-size: 15px; line-height: 1.3; }
+.vis-safe li span:not(.safe-icon) { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.js .tscene.in .vis-safe li { animation: tup .45s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(.15s + var(--d, 0s)); }
+
+/* ---------- One vertical rhythm: the same gap before every block ---------- */
+.section, .stats, .feature, .faq { padding: 88px 0 0; }
+.get { padding-bottom: 0; }
+.faq { padding-bottom: 104px; }
+
+/* ---------- Feature sections: one box each, the words on one side and the picture on the other ---------- */
+.fbox { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; padding: 40px 40px 40px 56px; border-radius: var(--radius); background: linear-gradient(180deg, var(--card-top), var(--card-bottom)); border: 1px solid var(--line-2); box-shadow: var(--shadow-card); }
+.fbox.flip { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); padding: 40px 56px 40px 40px; }
+.fbox.flip .fcopy { order: 2; }
+.fcopy { min-width: 0; }
+.fcopy .kicker { color: var(--brand); margin-bottom: 14px; }
+.fcopy h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.08; letter-spacing: -0.03em; }
+.fcopy p:not(.kicker) { margin-top: 16px; color: var(--ink-2); font-size: 17px; line-height: 1.55; max-width: 420px; }
+.fvis { min-width: 0; display: grid; place-items: center; }
+.fvis > * { width: 100%; max-width: 560px; min-width: 0; }
+.fvis .tpanel { min-height: 0; }
+.fvis.ql { padding-bottom: 52px; }
+.fvis .ql-scene { max-width: 640px; }
+
+@media (max-width: 1000px) {
+  .fbox, .fbox.flip { grid-template-columns: 1fr; gap: 26px; padding: 28px; }
+  .fbox.flip .fcopy { order: 0; }
+  .fcopy p:not(.kicker) { max-width: none; }
+  .fvis > * { max-width: none; }
+  .tscene { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+  .tscene-copy p:not(.kicker) { max-width: none; }
+  .tscene-vis > * { max-width: none; }
+  .tpanel { min-height: 0; }
+  /* The box is as tall as the scene it shows, not as the tallest of them. */
+  .tstage .cpanel:not(.on) { display: none; }
+}
+@media (max-width: 760px) {
+  .tour { margin-top: 36px; }
+  .section, .stats, .feature, .faq { padding: 60px 0 0; }
+  .faq { padding-bottom: 72px; }
+  .fbox, .fbox.flip { padding: 18px; gap: 20px; }
+  .fcopy h2 { font-size: 28px; }
+  .fcopy p:not(.kicker) { font-size: 15.5px; }
+  .tscene { padding: 18px; gap: 20px; }
+  .tscene-copy h3 { font-size: 26px; }
+  .tscene-copy p:not(.kicker) { font-size: 15.5px; }
+  .tpanel { padding: 18px; gap: 14px; }
+  .vis-small .bar { grid-template-columns: 1fr; gap: 6px; }
+  .vis-small .bar .val { text-align: left; }
+  .tscene-vis .orbit-wrap { max-width: 300px; }
+}

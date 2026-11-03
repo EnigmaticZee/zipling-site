@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zipling — Your files, a lot smaller</title>
-  <meta name="description" content="Zipling packs photos, documents and apps into archives far smaller than a zip, in a fraction of the time, and brings every byte back exactly. Coming soon for Mac.">
+  <title>Zipling — Smaller. Faster. Every byte intact.</title>
+  <meta name="description" content="Zipling is a new archive manager for Mac. Its Arca engine packs photos, documents, apps and code into archives up to 41% smaller than a zip, in a fraction of the time, and brings every byte back exactly. Coming soon.">
   <meta name="theme-color" content="#0A0B14" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#FBFBFD" media="(prefers-color-scheme: light)">
   <link rel="canonical" href="https://www.zipling.app/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Zipling — Your files, a lot smaller">
-  <meta property="og:description" content="Zipling packs photos, documents and apps into archives far smaller than a zip, in a fraction of the time, and brings every byte back exactly. Coming soon for Mac, $19.99 once.">
+  <meta property="og:title" content="Zipling — Smaller. Faster. Every byte intact.">
+  <meta property="og:description" content="Zipling is a new archive manager for Mac. Its Arca engine packs photos, documents, apps and code into archives up to 41% smaller than a zip, in a fraction of the time, and brings every byte back exactly. Coming soon for Mac, $19.99 once.">
   <meta property="og:image" content="https://www.zipling.app/assets/og.jpg">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="next.css">
   <link rel="stylesheet" href="c.css">
+  <link rel="stylesheet" href="tour.css">
   <script>document.documentElement.classList.add("js")</script>
   <script src="next.js" defer></script>
   <script src="c.js" defer></script>
@@ -29,10 +30,9 @@
         <span>Zipling</span>
       </a>
       <nav aria-label="Site">
-        <a href="#smaller">Smaller and faster</a>
-        <a href="#opens">Opens anything</a>
-        <a href="#repair">Repair</a>
+        <a href="#tour">Features</a>
         <a href="#app">The app</a>
+        <a href="#numbers">Numbers</a>
         <a href="how.html">How it works</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -51,82 +51,131 @@
       <div class="wrap hero-inner">
         <div class="hero-icon reveal"><img src="assets/icon-512.png" alt="The Zipling app icon" width="128" height="128"></div>
         <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span>Zipling for Mac · Coming soon</p>
-        <h1 class="reveal">Your files.<br><span class="grad">A lot smaller.</span></h1>
-        <p class="lede reveal">Zipling packs photos, documents and apps into archives that are far smaller than a zip, in a fraction of the time. And every byte comes back exactly as it was.</p>
-        <ul class="chips reveal" aria-label="What it does">
-          <li>Compress</li><li>Open anything</li><li>Repair</li><li>Convert</li>
-        </ul>
+        <h1 class="reveal">Smaller. Faster.<br><span class="grad">Every byte intact.</span></h1>
+        <p class="lede reveal">A new archive manager for Mac. Its <strong>Arca</strong> engine knows what is inside your files, so archives come out up to 41% smaller than a zip, in a fraction of the time. And every byte comes back exactly as it was.</p>
         <div class="cta reveal">
           <a class="btn btn-primary" href="#get">Coming soon · $19.99, once</a>
-          <a class="btn btn-ghost" href="#smaller">See how it works</a>
+          <a class="btn btn-ghost" href="#numbers">See the numbers</a>
         </div>
         <p class="fine reveal">One-time purchase, no subscription · For Macs with Apple silicon</p>
       </div>
 
-      <!-- The app, drawn as it should feel, and over it the one picture that explains Zipling. -->
-      <div class="wrap">
-        <div class="hero-stage reveal" data-scene="hero">
-          <div class="zw hero-win" aria-label="The Holiday archive in Zipling: four photos, each 47 to 70% smaller, the whole archive 58% smaller, with a sunset photo previewed">
-      <div class="zw-bar">
-        <span class="lights"><i></i><i></i><i></i></span>
-        <span class="zw-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 5v14"/></svg></span>
-        <span class="zw-ic"><svg viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6"/></svg></span>
-        <div class="zw-title"><b>Holiday</b><span>7 files · 283 KB · 58% smaller</span></div>
-        <div class="zw-tools"><span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4M5 20h14"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/></svg></span><span class="zw-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>Search archive</span></div>
-      </div>
-      <div class="zw-body">
-        <aside class="zw-side">
-          <h4>Contents</h4>
-          <div><i class="ic zlg"></i>Holiday.zlg</div>
-          <div class="l1"><i class="ic fold"></i>Holiday</div>
-          <div class="l2"><i class="ic fold"></i>Documents</div>
-          <div class="l2 on"><i class="ic fold"></i>Photos</div>
-        </aside>
-        <div class="zw-main">
-          <div class="zw-crumb"><span>Holiday.zlg</span><span>Holiday</span><b>Photos</b><em>4 items</em></div>
-          <div class="zw-cols"><span>Name</span><span>Size</span><span>Saved</span><span>Method</span></div>
-        <div class="zw-row sel" style="--i:0"><span class="nm"><img src="shots/photos/sunset-thumb.jpg" alt="" width="160" height="107">Sunset at the pier.jpg</span><span>104 KB</span><span class="sv"><i style="--w:.61"></i>61%</span><span>JPEG coder</span></div>
-        <div class="zw-row" style="--i:1"><span class="nm"><img src="shots/photos/valley-thumb.jpg" alt="" width="160" height="107">Morning in the valley.jpg</span><span>108 KB</span><span class="sv"><i style="--w:.58"></i>58%</span><span>JPEG coder</span></div>
-        <div class="zw-row" style="--i:2"><span class="nm"><img src="shots/photos/beach-thumb.jpg" alt="" width="160" height="107">Beach from the hotel.jpg</span><span>158 KB</span><span class="sv"><i style="--w:.70"></i>70%</span><span>JPEG coder</span></div>
-        <div class="zw-row" style="--i:3"><span class="nm"><img src="shots/photos/night-thumb.jpg" alt="" width="160" height="107">Last night in town.jpg</span><span>256 KB</span><span class="sv"><i style="--w:.47"></i>47%</span><span>JPEG coder</span></div>
+      <!-- The tour: what Zipling does, one idea per scene, in one box. -->
+      <div class="wrap tour" id="tour">
+        <div class="ctabs-wrap reveal">
+          <div class="ctabs" role="tablist" aria-label="What Zipling does" data-ctabs="tour">
+            <button class="ctab on" role="tab" aria-selected="true">Smaller<i class="prog"></i></button>
+            <button class="ctab" role="tab" aria-selected="false">Faster<i class="prog"></i></button>
+            <button class="ctab" role="tab" aria-selected="false">Opens anything<i class="prog"></i></button>
+            <button class="ctab" role="tab" aria-selected="false">Every byte<i class="prog"></i></button>
+          </div>
         </div>
-      <aside class="zw-insp">
-        <div class="zw-prev"><img src="shots/photos/sunset.jpg" alt="" width="900" height="600"></div>
-        <b>Sunset at the pier.jpg</b><span class="path">Holiday / Photos</span>
-        <dl><dt>Size</dt><dd>104 KB</dd><dt>Packed</dt><dd>≈ 41 KB</dd><dt>Saved</dt><dd>61%</dd><dt>Method</dt><dd>JPEG coder</dd></dl>
-        <div class="zw-ring"><svg viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="34"/><circle class="arc" cx="40" cy="40" r="34" pathLength="100"/></svg><div><b>58%</b><span>smaller</span></div></div>
-      </aside>
-      </div>
-    </div>
-          <figure class="hero-vis float reveal" data-scene="hero" aria-label="The same 736 MB folder: 325 MB as a zip from Finder, 193 MB as a Zipling archive">
-          <div class="folder">
-            <div class="folder-icon" aria-hidden="true">
-              <i class="f f1"></i><i class="f f2"></i><i class="f f3"></i><i class="f f4"></i>
+        <div class="cstage tstage" data-cpanels="tour">
+
+          <div class="cpanel tscene on" role="tabpanel" data-dur="5000">
+            <div class="tscene-copy">
+              <p class="kicker">Smaller</p>
+              <h3>It looks before it squeezes.</h3>
+              <p>Zipling knows a photo from a PDF from an app, and shrinks each one the way it deserves. The same folder ends up far smaller than a zip.</p>
             </div>
-            <div class="folder-text">
-              <b>Holiday</b>
-              <span>736 MB · photos, PDFs, an app, some code</span>
-            </div>
-          </div>
-          <div class="bars">
-            <div class="bar them">
-              <span class="who">Zipped in Finder</span>
-              <span class="track"><i style="--w:1"></i></span>
-              <span class="val"><b data-count="324.6" data-dec="1" data-dur="1400">0</b> MB</span>
-            </div>
-            <div class="bar us">
-              <span class="who">Packed by Zipling</span>
-              <span class="track"><i style="--w:.593"></i></span>
-              <span class="val"><b data-count="192.6" data-dec="1" data-dur="1400">0</b> MB</span>
+            <div class="tscene-vis">
+              <figure class="tpanel vis-small" aria-label="The same 736 MB folder: 325 MB as a zip from Finder, 193 MB as a Zipling archive">
+                <div class="folder">
+                  <div class="folder-icon" aria-hidden="true"><i class="f f1"></i><i class="f f2"></i><i class="f f3"></i><i class="f f4"></i></div>
+                  <div class="folder-text"><b>Holiday</b><span>736 MB · photos, PDFs, an app, some code</span></div>
+                </div>
+                <div class="bars">
+                  <div class="bar them"><span class="who">Zipped in Finder</span><span class="track"><i style="--w:1"></i></span><span class="val"><b data-count="324.6" data-dec="1" data-dur="700">0</b> MB</span></div>
+                  <div class="bar us"><span class="who">Packed by Zipling</span><span class="track"><i style="--w:.593"></i></span><span class="val"><b data-count="192.6" data-dec="1" data-dur="700">0</b> MB</span></div>
+                </div>
+                <span class="chip chip-brand pop" style="--at:.9s">41% smaller than a zip</span>
+              </figure>
             </div>
           </div>
-          <div class="hero-chips">
-            <span class="chip chip-brand pop" style="--at:1.5s">41% smaller than a zip</span>
-            <span class="chip pop" style="--at:2.1s">Still faster: 19 s instead of 24 s</span>
-            <span class="chip chip-good pop" style="--at:2.7s"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.5l3 3 6-7"/></svg>Every byte checked</span>
+
+          <div class="cpanel tscene" role="tabpanel" data-dur="5000">
+            <div class="tscene-copy">
+              <p class="kicker">Faster</p>
+              <h3>Fast enough to forget about it.</h3>
+              <p>The folder that takes Finder 24 seconds is done in 9 at the default setting, and in half a second at Fast. Every core of your Mac helps.</p>
+            </div>
+            <div class="tscene-vis">
+              <figure class="tpanel vis-race" aria-label="Time to compress 736 MB: Finder 24.1 seconds, Zipling 8.8 seconds, Zipling Fast 0.5 seconds">
+                <p class="card-head"><b>Compressing the folder</b><span>shorter is better</span></p>
+                <div class="race">
+                  <div class="lane them"><span class="who">Finder</span><span class="track"><i style="--w:1;--t:1.6s"></i></span><span class="val"><b data-count="24.1" data-dec="1" data-dur="1600">0</b> s</span></div>
+                  <div class="lane us"><span class="who">Zipling</span><span class="track"><i style="--w:.365;--t:.6s"></i></span><span class="val"><b data-count="8.8" data-dec="1" data-dur="600">0</b> s</span></div>
+                  <div class="lane us"><span class="who">Zipling Fast</span><span class="track"><i style="--w:.03;--t:.05s"></i></span><span class="val"><b data-count="0.5" data-dec="1" data-dur="50">0</b> s</span></div>
+                </div>
+                <span class="chip chip-brand pop" style="--at:1.8s">9 seconds instead of 24</span>
+              </figure>
+            </div>
           </div>
-          <figcaption>Measured on a MacBook Pro at Zipling's Max setting. The default setting makes it 214 MB in 9 seconds.</figcaption>
-        </figure>
+
+          <div class="cpanel tscene" role="tabpanel" data-dur="5000">
+            <div class="tscene-copy">
+              <p class="kicker">Opens anything</p>
+              <h3>The archives you already have.</h3>
+              <p>ZIP, RAR, 7z, TAR, disk images and old Mac formats, split into parts or locked with a password. For someone without Zipling, it writes a normal ZIP that opens anywhere.</p>
+            </div>
+            <div class="tscene-vis">
+              <div class="orbit-wrap" aria-hidden="true">
+                <span class="ring r1"></span><span class="ring r2"></span>
+                <img class="core" src="assets/icon-512.png" alt="" width="96" height="96">
+                <div class="orbit o1">
+                  <span class="slot" style="--a:0deg"><span class="cs"><b style="--at:.2s">ZIP</b></span></span>
+                  <span class="slot" style="--a:60deg"><span class="cs"><b style="--at:.26s">RAR</b></span></span>
+                  <span class="slot" style="--a:120deg"><span class="cs"><b style="--at:.31s">7z</b></span></span>
+                  <span class="slot" style="--a:180deg"><span class="cs"><b style="--at:.37s">TAR</b></span></span>
+                  <span class="slot" style="--a:240deg"><span class="cs"><b style="--at:.42s">DMG</b></span></span>
+                  <span class="slot" style="--a:300deg"><span class="cs"><b style="--at:.48s">ISO</b></span></span>
+                </div>
+                <div class="orbit o2">
+                  <span class="slot" style="--a:15deg"><span class="cs"><b style="--at:.54s">StuffIt</b></span></span>
+                  <span class="slot" style="--a:45deg"><span class="cs"><b style="--at:.59s">tar.gz</b></span></span>
+                  <span class="slot" style="--a:75deg"><span class="cs"><b style="--at:.63s">Zstandard</b></span></span>
+                  <span class="slot" style="--a:105deg"><span class="cs"><b style="--at:.67s">WIM</b></span></span>
+                  <span class="slot" style="--a:135deg"><span class="cs"><b style="--at:.71s">CAB</b></span></span>
+                  <span class="slot" style="--a:165deg"><span class="cs"><b style="--at:.75s">BinHex</b></span></span>
+                  <span class="slot" style="--a:195deg"><span class="cs"><b style="--at:.79s">GZIP</b></span></span>
+                  <span class="slot" style="--a:225deg"><span class="cs"><b style="--at:.83s">Split .001</b></span></span>
+                  <span class="slot" style="--a:255deg"><span class="cs"><b style="--at:.88s">LZH</b></span></span>
+                  <span class="slot" style="--a:285deg"><span class="cs"><b style="--at:.92s">Password</b></span></span>
+                  <span class="slot" style="--a:315deg"><span class="cs"><b style="--at:.96s">BZIP2</b></span></span>
+                  <span class="slot" style="--a:345deg"><span class="cs"><b style="--at:1s">XZ</b></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cpanel tscene" role="tabpanel" data-dur="5000">
+            <div class="tscene-copy">
+              <p class="kicker">Every byte intact</p>
+              <h3>Your files, treated with respect.</h3>
+              <p>Nothing is approximated and nothing leaves your Mac. What goes in is exactly what comes out.</p>
+            </div>
+            <div class="tscene-vis">
+              <ul class="tpanel vis-safe" aria-label="How Zipling treats your files">
+                <li>
+                  <span class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>
+                  <div><b>Every byte checked</b><span>When it compresses, and again when it extracts.</span></div>
+                </li>
+                <li style="--d:.1s">
+                  <span class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"/><path d="M9 14l2 2 4-4"/></svg></span>
+                  <div><b>Stays in its folder</b><span>A zip can try to drop files outside the folder you chose. Zipling keeps everything inside it.</span></div>
+                </li>
+                <li style="--d:.2s">
+                  <span class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M8 21h8M12 18v3M7 12l3-3 3 3 4-4"/></svg></span>
+                  <div><b>Downloads stay checked</b><span>Files from the internet keep their download mark, so macOS still checks an app before it runs.</span></div>
+                </li>
+                <li style="--d:.3s">
+                  <span class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+                  <div><b>Nothing leaves your Mac</b><span>No account, no upload, no tracking.</span></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -152,153 +201,104 @@
       </div>
     </section>
 
-    <!-- ============================== Smaller and faster ============================== -->
-    <section class="section" id="smaller">
+    <!-- ============================== Quick Look ============================== -->
+    <section class="section feature" id="quicklook">
       <div class="wrap">
-        <header class="section-head reveal">
-          <p class="kicker">Smaller, and faster</p>
-          <h2>It looks before it squeezes.</h2>
-          <p class="sub">Most tools treat your files as one big pile of bytes. Zipling knows a photo from a PDF from an app, shrinks each one the way it deserves, and uses every core of your Mac while it does.</p>
-        </header>
-        <div class="kinds">
-          <article class="kind reveal">
-            <div class="kind-art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="6"/><circle cx="18" cy="21" r="4"/><path d="M8 34l10-9 7 7 5-5 10 10"/></svg></div>
-            <p class="kind-num">26% smaller</p>
-            <h3>Photos</h3>
-            <p>A JPEG is already squeezed, so zipping it barely helps. Zipling re-encodes the picture inside, then checks it's the same image, bit for bit.</p>
-            <div class="mini">
-              <div class="row"><span>Zip from Finder</span><i class="them" style="--w:1"></i><b>93 MB</b></div>
-              <div class="row"><span>Zipling</span><i class="us" style="--w:.74"></i><b>69 MB</b></div>
-            </div>
-          </article>
-          <article class="kind reveal" style="--d:.08s">
-            <div class="kind-art" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M14 6h14l10 10v22a4 4 0 01-4 4H14a4 4 0 01-4-4V10a4 4 0 014-4z"/><path d="M28 6v10h10M17 26h14M17 33h10"/></svg></div>
-            <p class="kind-num">56% smaller</p>
-            <h3>PDFs &amp; screenshots</h3>
-            <p>Documents and screenshots hide old, weak compression. Zipling undoes it and does it better, then puts the original back exactly.</p>
-            <div class="mini">
-              <div class="row"><span>Zip from Finder</span><i class="them" style="--w:1"></i><b>50 MB</b></div>
-              <div class="row"><span>Zipling</span><i class="us" style="--w:.44"></i><b>22 MB</b></div>
-            </div>
-          </article>
-          <article class="kind reveal" style="--d:.16s">
-            <div class="kind-art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="9"/><path d="M19 30l5-12 5 12M20.5 26h7"/></svg></div>
-            <p class="kind-num">35% smaller</p>
-            <h3>Mac apps</h3>
-            <p>Apps are mostly code for Apple silicon. Zipling lines the code up so repeats stand out, and the whole bundle packs tighter.</p>
-            <div class="mini">
-              <div class="row"><span>Zip from Finder</span><i class="them" style="--w:1"></i><b>87 MB</b></div>
-              <div class="row"><span>Zipling</span><i class="us" style="--w:.65"></i><b>56 MB</b></div>
-            </div>
-          </article>
-          <article class="kind reveal" style="--d:.24s">
-            <div class="kind-art" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M18 14l-9 10 9 10M30 14l9 10-9 10M27 10l-6 28"/></svg></div>
-            <p class="kind-num">62% smaller</p>
-            <h3>Code &amp; text</h3>
-            <p>Words and code repeat themselves. Zipling uses the strongest text compression there is, and still opens the archive in a blink.</p>
-            <div class="mini">
-              <div class="row"><span>Zip from Finder</span><i class="them" style="--w:1"></i><b>25 MB</b></div>
-              <div class="row"><span>Zipling</span><i class="us" style="--w:.38"></i><b>9.5 MB</b></div>
-            </div>
-          </article>
-        </div>
-        <p class="footnote reveal" style="margin-bottom:40px">Finder's zip of each folder next to Zipling at its default setting. The Max setting goes further still.</p>
-        <header class="section-head reveal">
-          <h2>Fast enough to forget about it.</h2>
-          <p class="sub">The same 736 MB folder that takes Finder 24 seconds is done in 9 at the default setting, and in half a second at Fast.</p>
-        </header>
-        <div class="duo">
-          <figure class="card race-card reveal" data-scene="race" aria-label="Time to compress 736 MB: Finder 24.1 seconds, Zipling 8.8 seconds, Zipling Fast 0.5 seconds">
-            <p class="card-head"><b>Compressing the folder</b><span>shorter is better</span></p>
-            <div class="race">
-              <div class="lane them"><span class="who">Finder</span><span class="track"><i style="--w:1;--t:4s"></i></span><span class="val"><b data-count="24.1" data-dec="1" data-dur="4000">0</b> s</span></div>
-              <div class="lane us"><span class="who">Zipling</span><span class="track"><i style="--w:.365;--t:1.46s"></i></span><span class="val"><b data-count="8.8" data-dec="1" data-dur="1460">0</b> s</span></div>
-              <div class="lane us"><span class="who">Zipling Fast</span><span class="track"><i style="--w:.03;--t:.12s"></i></span><span class="val"><b data-count="0.5" data-dec="1" data-dur="120">0</b> s</span></div>
-            </div>
-            <p class="card-head second"><b>Opening it again</b><span>every file extracted</span></p>
-            <div class="race">
-              <div class="lane them"><span class="who">Finder</span><span class="track"><i style="--w:1;--t:2.6s"></i></span><span class="val"><b data-count="7.9" data-dec="1" data-dur="2600">0</b> s</span></div>
-              <div class="lane us"><span class="who">Zipling</span><span class="track"><i style="--w:.205;--t:.53s"></i></span><span class="val"><b data-count="1.6" data-dec="1" data-dur="530">0</b> s</span></div>
-            </div>
-            <span class="chip chip-brand pop" style="--at:4.2s">Opens 5× faster than a zip</span>
-          </figure>
-          <figure class="card later-card reveal" style="--d:.1s" data-scene="later" aria-label="Fast now, smaller later">
-            <p class="card-head"><b>Fast now. Smaller later.</b></p>
-            <p class="card-text">Need it quick? Zipling makes the archive in seconds, then re-packs it at Max while your Mac is idle and plugged in. The smaller one is swapped in only once it has been checked.</p>
-            <div class="later">
-              <div class="archive"><i class="fill"></i><span class="name">Mac Backup.zlg</span><span class="size"><b data-count="192.6" data-from="281.1" data-dec="1" data-dur="1200" data-delay="2600">281.1</b> MB</span></div>
-              <div class="when">
-                <span class="cond" style="--at:.6s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>Mac is idle</span>
-                <span class="cond" style="--at:1.1s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L5 13h6l-1 9 8-11h-6l1-9z"/></svg>Plugged in</span>
-                <span class="cond" style="--at:1.6s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3M18 3v4h-4M6 21v-4h4"/></svg>Re-packing at Max</span>
-              </div>
-              <span class="chip chip-good pop" style="--at:3.9s"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.5l3 3 6-7"/></svg>31% smaller, same files</span>
-            </div>
-          </figure>
-        </div>
-        <p class="footnote reveal">Measured on an idle M1 Pro, every archive extracted and compared byte for byte. <a href="benchmarks.html">All six benchmarks, against 7-Zip, WinRAR and the rest →</a></p>
-      </div>
-    </section>
-
-    <!-- ============================== Opens anything ============================== -->
-    <section class="section" id="opens">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <p class="kicker">Opens anything</p>
-          <h2>The archives you already have.</h2>
-          <p class="sub">ZIP, RAR, 7z, TAR, disk images and old Mac formats, split into parts or locked with a password. Even file names garbled by an old Windows zip come out right.</p>
-        </header>
-        <figure class="card formats reveal" data-scene="formats" aria-label="Formats Zipling opens">
-          <div class="orbit-wrap" aria-hidden="true">
-            <span class="ring r1"></span><span class="ring r2"></span>
-            <img class="core" src="assets/icon-512.png" alt="" width="96" height="96">
-            <div class="orbit o1">
-              <span class="slot" style="--a:0deg"><span class="cs"><b style="--at:.3s">ZIP</b></span></span>
-              <span class="slot" style="--a:60deg"><span class="cs"><b style="--at:.38s">RAR</b></span></span>
-              <span class="slot" style="--a:120deg"><span class="cs"><b style="--at:.46s">7z</b></span></span>
-              <span class="slot" style="--a:180deg"><span class="cs"><b style="--at:.54s">TAR</b></span></span>
-              <span class="slot" style="--a:240deg"><span class="cs"><b style="--at:.62s">DMG</b></span></span>
-              <span class="slot" style="--a:300deg"><span class="cs"><b style="--at:.70s">ISO</b></span></span>
-            </div>
-            <div class="orbit o2">
-              <span class="slot" style="--a:15deg"><span class="cs"><b style="--at:.8s">StuffIt</b></span></span>
-              <span class="slot" style="--a:45deg"><span class="cs"><b style="--at:.86s">tar.gz</b></span></span>
-              <span class="slot" style="--a:75deg"><span class="cs"><b style="--at:.92s">Zstandard</b></span></span>
-              <span class="slot" style="--a:105deg"><span class="cs"><b style="--at:.98s">WIM</b></span></span>
-              <span class="slot" style="--a:135deg"><span class="cs"><b style="--at:1.04s">CAB</b></span></span>
-              <span class="slot" style="--a:165deg"><span class="cs"><b style="--at:1.10s">BinHex</b></span></span>
-              <span class="slot" style="--a:195deg"><span class="cs"><b style="--at:1.16s">GZIP</b></span></span>
-              <span class="slot" style="--a:225deg"><span class="cs"><b style="--at:1.22s">Split .001</b></span></span>
-              <span class="slot" style="--a:255deg"><span class="cs"><b style="--at:1.28s">LZH</b></span></span>
-              <span class="slot" style="--a:285deg"><span class="cs"><b style="--at:1.34s">Password</b></span></span>
-              <span class="slot" style="--a:315deg"><span class="cs"><b style="--at:1.40s">BZIP2</b></span></span>
-              <span class="slot" style="--a:345deg"><span class="cs"><b style="--at:1.46s">XZ</b></span></span>
-            </div>
+        <div class="fbox flip">
+          <div class="fcopy reveal">
+            <p class="kicker">Quick Look</p>
+            <h2>Press Space. See inside.</h2>
+            <p>Select any file in an archive and press Space to see it, straight from the archive, with nothing extracted. The arrow keys move down the list and the preview follows. In Finder, Space on an archive shows what is inside before you open it.</p>
           </div>
-          <ul class="format-notes">
-            <li><b>Share with anyone.</b> Making an archive for someone without Zipling? It writes a normal ZIP or 7z that opens anywhere, with a password and split parts if you want them.</li>
-            <li><b>Convert in one step.</b> Turn an old ZIP, RAR or 7z into a Zipling archive, with the new size shown before you start.</li>
-            <li><b>Archives inside archives.</b> Browse a zip that is inside a zip without extracting either.</li>
-          </ul>
-        </figure>
+          <div class="fvis ql">
+            <div class="ql-scene" data-scene="quicklook" aria-label="Selecting a photo in the archive, pressing Space to preview it, and moving down the list with the arrow key while the preview follows">
+                              <div class="zw ql-win" aria-label="">
+                  <div class="zw-bar">
+                    <span class="lights"><i></i><i></i><i></i></span>
+                    <span class="zw-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 5v14"/></svg></span>
+                    <span class="zw-ic"><svg viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6"/></svg></span>
+                    <div class="zw-title"><b>Holiday</b><span>7 files · 283 KB · 58% smaller</span></div>
+                    <div class="zw-tools"><span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4M5 20h14"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/></svg></span><span class="zw-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>Search archive</span></div>
+                  </div>
+                  <div class="zw-body no-insp">
+                    <aside class="zw-side">
+                      <h4>Contents</h4>
+                      <div><i class="ic zlg"></i>Holiday.zlg</div>
+                      <div class="l1"><i class="ic fold"></i>Holiday</div>
+                      <div class="l2"><i class="ic fold"></i>Documents</div>
+                      <div class="l2 on"><i class="ic fold"></i>Photos</div>
+                    </aside>
+                    <div class="zw-main">
+                      <div class="zw-crumb"><span>Holiday.zlg</span><span>Holiday</span><b>Photos</b><em>4 items</em></div>
+                      <div class="zw-cols"><span>Name</span><span>Size</span><span>Saved</span><span>Method</span></div>
+                    <div class="zw-row sel" style="--i:0"><span class="nm"><img src="shots/photos/sunset-thumb.jpg" alt="" width="160" height="107">Sunset at the pier.jpg</span><span>104 KB</span><span class="sv"><i style="--w:.61"></i>61%</span><span>JPEG coder</span></div>
+                    <div class="zw-row" style="--i:1"><span class="nm"><img src="shots/photos/valley-thumb.jpg" alt="" width="160" height="107">Morning in the valley.jpg</span><span>108 KB</span><span class="sv"><i style="--w:.58"></i>58%</span><span>JPEG coder</span></div>
+                    <div class="zw-row" style="--i:2"><span class="nm"><img src="shots/photos/beach-thumb.jpg" alt="" width="160" height="107">Beach from the hotel.jpg</span><span>158 KB</span><span class="sv"><i style="--w:.70"></i>70%</span><span>JPEG coder</span></div>
+                    <div class="zw-row" style="--i:3"><span class="nm"><img src="shots/photos/night-thumb.jpg" alt="" width="160" height="107">Last night in town.jpg</span><span>256 KB</span><span class="sv"><i style="--w:.47"></i>47%</span><span>JPEG coder</span></div>
+                    </div>
+                  </div>
+                </div>
+                              <div class="qlp" aria-hidden="true">
+                                <div class="qlp-bar"><span class="qlp-x"></span><b class="t t1">Sunset at the pier.jpg</b><b class="t t2">Morning in the valley.jpg</b><b class="t t3">Beach from the hotel.jpg</b></div>
+                                <div class="qlp-img"><img class="p1" src="shots/photos/sunset.jpg" alt=""><img class="p2" src="shots/photos/valley.jpg" alt=""><img class="p3" src="shots/photos/beach.jpg" alt=""></div>
+                              </div>
+                              <kbd class="keycap k-space" aria-hidden="true">space</kbd>
+                              <kbd class="keycap k-down" aria-hidden="true">↓</kbd>
+                              <span class="cursor" aria-hidden="true"><svg viewBox="0 0 18 22"><path d="M2 2l5.5 15 2.6-5.6L16 9z"/></svg></span>
+                            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============================== Repair ============================== -->
-    <section class="section" id="repair">
+    <section class="section feature" id="repair">
       <div class="wrap">
-        <header class="section-head reveal">
-          <p class="kicker">Self-healing</p>
-          <h2>Archives that fix themselves.</h2>
-          <p class="sub">Tick one box when you compress, and the archive carries its own repair data, just 3% of its size. Years later, if a disk fails or a download breaks, Zipling rebuilds the damaged parts exactly. ZIP and 7z get a small recovery file beside them instead.</p>
-        </header>
-        <figure class="card repair reveal" data-scene="repair" aria-label="A damaged Zipling archive being repaired">
-          <p class="card-head"><b>Holiday.zlg</b><span class="state bad">7 parts damaged</span><span class="state good">Repaired, byte for byte</span></p>
-          <div class="grid-wrap"><div class="grid" aria-hidden="true"></div><span class="sweep" aria-hidden="true"></span></div>
-          <p class="card-head small"><b>Repair data inside</b><span>3% of its size</span></p>
-          <div class="parity" aria-hidden="true"></div>
-          <figcaption>If more is damaged than the repair data can cover, Zipling says exactly which files are lost instead of guessing.</figcaption>
-        </figure>
+        <div class="fbox">
+          <div class="fcopy reveal">
+            <p class="kicker">Self-healing</p>
+            <h2>Archives that fix themselves.</h2>
+            <p>Tick one box when you compress, and the archive carries its own repair data, just 3% of its size. Years later, if a disk fails or a download breaks, Zipling rebuilds the damaged parts exactly. ZIP and 7z get a small recovery file beside them instead.</p>
+          </div>
+          <div class="fvis">
+            <figure class="tpanel repair" data-scene="repair" aria-label="A damaged Zipling archive being repaired">
+                            <p class="card-head"><b>Holiday.zlg</b><span class="state bad">7 parts damaged</span><span class="state good">Repaired, byte for byte</span></p>
+                            <div class="grid-wrap"><div class="grid" aria-hidden="true"></div><span class="sweep" aria-hidden="true"></span></div>
+                            <p class="card-head small"><b>Repair data inside</b><span>3% of its size</span></p>
+                            <div class="parity" aria-hidden="true"></div>
+                            <figcaption>If more is damaged than the repair data can cover, Zipling says exactly which files are lost instead of guessing.</figcaption>
+                          </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Shrink later ============================== -->
+    <section class="section feature" id="later">
+      <div class="wrap">
+        <div class="fbox flip">
+          <div class="fcopy reveal">
+            <p class="kicker">Shrink later</p>
+            <h2>Fast now. Smaller later.</h2>
+            <p>Need it quick? Zipling makes the archive in seconds, then re-packs it at Max while your Mac is idle and plugged in. The smaller one is swapped in only once it has been checked, so the fast version is never a compromise.</p>
+          </div>
+          <div class="fvis">
+            <figure class="tpanel vis-later" data-scene="later" aria-label="Fast now, smaller later: a 281 MB archive made at Fast becomes 193 MB once the Mac is idle">
+                            <p class="card-head"><b>Made at Fast, in half a second</b><span>from a 736 MB folder</span></p>
+                            <div class="later">
+                              <div class="archive"><i class="fill"></i><span class="name">Mac Backup.zlg</span><span class="size"><b data-count="192.6" data-from="281.1" data-dec="1" data-dur="1200" data-delay="2600">281.1</b> MB</span></div>
+                              <div class="when">
+                                <span class="cond" style="--at:.6s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>Mac is idle</span>
+                                <span class="cond" style="--at:1.1s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L5 13h6l-1 9 8-11h-6l1-9z"/></svg>Plugged in</span>
+                                <span class="cond swap" style="--at:1.6s">
+                                  <span class="run"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3M18 3v4h-4M6 21v-4h4"/></svg>Re-packing at Max</span>
+                                  <span class="ok"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.5l3 3 6-7"/></svg>31% smaller, same files</span>
+                                </span>
+                              </div>
+                            </div>
+                          </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -310,10 +310,9 @@
           <h2>The everyday, done right.</h2>
           <p class="sub">A native Mac app that feels like part of the system. Most of the time you won't even open it.</p>
         </header>
-        <div class="reveal">
+        <div class="ctabs-wrap reveal">
           <div class="ctabs" role="tablist" data-ctabs="app">
             <button class="ctab on" role="tab" aria-selected="true">Extract Here<i class="prog"></i></button>
-            <button class="ctab" role="tab" aria-selected="false">Quick Look<i class="prog"></i></button>
             <button class="ctab" role="tab" aria-selected="false">Compress<i class="prog"></i></button>
             <button class="ctab" role="tab" aria-selected="false">Convert<i class="prog"></i></button>
             <button class="ctab" role="tab" aria-selected="false">Edit in place<i class="prog"></i></button>
@@ -367,50 +366,6 @@
               <div class="cpanel-copy">
                 <h3>Right-click. Extract Here. Done.</h3>
                 <p>Right-click an archive in Finder, or drop it on the menu bar, and keep working. The files land in one tidy folder next to it, and progress shows on the Dock.</p>
-              </div>
-            </div>
-
-            <div class="cpanel" role="tabpanel" data-dur="8500">
-              <div class="cpanel-vis">
-                <div class="ql-scene" aria-label="Selecting a photo in the archive, pressing Space to preview it, and moving down the list with the arrow key while the preview follows">
-                  <div class="zw ql-win" aria-label="">
-      <div class="zw-bar">
-        <span class="lights"><i></i><i></i><i></i></span>
-        <span class="zw-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 5v14"/></svg></span>
-        <span class="zw-ic"><svg viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6"/></svg></span>
-        <div class="zw-title"><b>Holiday</b><span>7 files · 283 KB · 58% smaller</span></div>
-        <div class="zw-tools"><span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4M5 20h14"/></svg></span><span><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/></svg></span><span class="zw-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>Search archive</span></div>
-      </div>
-      <div class="zw-body no-insp">
-        <aside class="zw-side">
-          <h4>Contents</h4>
-          <div><i class="ic zlg"></i>Holiday.zlg</div>
-          <div class="l1"><i class="ic fold"></i>Holiday</div>
-          <div class="l2"><i class="ic fold"></i>Documents</div>
-          <div class="l2 on"><i class="ic fold"></i>Photos</div>
-        </aside>
-        <div class="zw-main">
-          <div class="zw-crumb"><span>Holiday.zlg</span><span>Holiday</span><b>Photos</b><em>4 items</em></div>
-          <div class="zw-cols"><span>Name</span><span>Size</span><span>Saved</span><span>Method</span></div>
-        <div class="zw-row sel" style="--i:0"><span class="nm"><img src="shots/photos/sunset-thumb.jpg" alt="" width="160" height="107">Sunset at the pier.jpg</span><span>104 KB</span><span class="sv"><i style="--w:.61"></i>61%</span><span>JPEG coder</span></div>
-        <div class="zw-row" style="--i:1"><span class="nm"><img src="shots/photos/valley-thumb.jpg" alt="" width="160" height="107">Morning in the valley.jpg</span><span>108 KB</span><span class="sv"><i style="--w:.58"></i>58%</span><span>JPEG coder</span></div>
-        <div class="zw-row" style="--i:2"><span class="nm"><img src="shots/photos/beach-thumb.jpg" alt="" width="160" height="107">Beach from the hotel.jpg</span><span>158 KB</span><span class="sv"><i style="--w:.70"></i>70%</span><span>JPEG coder</span></div>
-        <div class="zw-row" style="--i:3"><span class="nm"><img src="shots/photos/night-thumb.jpg" alt="" width="160" height="107">Last night in town.jpg</span><span>256 KB</span><span class="sv"><i style="--w:.47"></i>47%</span><span>JPEG coder</span></div>
-        </div>
-      </div>
-    </div>
-                  <div class="qlp" aria-hidden="true">
-                    <div class="qlp-bar"><span class="qlp-x"></span><b class="t t1">Sunset at the pier.jpg</b><b class="t t2">Morning in the valley.jpg</b><b class="t t3">Beach from the hotel.jpg</b></div>
-                    <div class="qlp-img"><img class="p1" src="shots/photos/sunset.jpg" alt=""><img class="p2" src="shots/photos/valley.jpg" alt=""><img class="p3" src="shots/photos/beach.jpg" alt=""></div>
-                  </div>
-                  <kbd class="keycap k-space" aria-hidden="true">space</kbd>
-                  <kbd class="keycap k-down" aria-hidden="true">↓</kbd>
-                  <span class="cursor" aria-hidden="true"><svg viewBox="0 0 18 22"><path d="M2 2l5.5 15 2.6-5.6L16 9z"/></svg></span>
-                </div>
-              </div>
-              <div class="cpanel-copy">
-                <h3>Press Space. See inside.</h3>
-                <p>Select any file in an archive and press Space to see it, straight from the archive. The arrow keys move down the list, and the preview follows. In Finder, Space on an archive shows what is inside before you open it.</p>
               </div>
             </div>
 
@@ -506,38 +461,6 @@
             </div>
 
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== Safe ============================== -->
-    <section class="section" id="safe">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <p class="kicker">Careful by design</p>
-          <h2>Your files, treated with respect.</h2>
-        </header>
-        <div class="safes">
-          <article class="safe reveal">
-            <div class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
-            <h3>Every byte checked</h3>
-            <p>Each part of an archive carries a checksum. Zipling verifies it when it compresses, and again when it extracts.</p>
-          </article>
-          <article class="safe reveal" style="--d:.06s">
-            <div class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"/><path d="M9 14l2 2 4-4"/></svg></div>
-            <h3>Stays in its folder</h3>
-            <p>A zip can try to drop files outside the folder you chose. Zipling keeps everything inside it.</p>
-          </article>
-          <article class="safe reveal" style="--d:.12s">
-            <div class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M8 21h8M12 18v3M7 12l3-3 3 3 4-4"/></svg></div>
-            <h3>Downloads stay checked</h3>
-            <p>Files from the internet keep their download mark, so macOS still checks an app before it runs.</p>
-          </article>
-          <article class="safe reveal" style="--d:.18s">
-            <div class="safe-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
-            <h3>Nothing leaves your Mac</h3>
-            <p>Everything happens on your computer. No account, no upload, no tracking.</p>
-          </article>
         </div>
       </div>
     </section>

@@ -4,20 +4,6 @@
 .hero .glow { height: 520px; top: -260px; }
 .hero { padding-bottom: 20px; }
 
-/* Hero composition: the real archive window, with the folder comparison floating over it. */
-.hero-stage { position: relative; margin: 56px auto 0; max-width: 1120px; padding-bottom: 150px; }
-.hero-vis.float { position: absolute; left: 24px; bottom: 0; margin: 0; width: min(560px, calc(100% - 48px)); padding: 22px 24px; grid-template-columns: 1fr; gap: 14px; }
-.hero-vis.float .folder { gap: 14px; }
-.hero-vis.float .folder-icon { width: 64px; height: 50px; }
-.hero-vis.float .folder-icon::before { width: 26px; height: 12px; top: -8px; }
-.hero-vis.float .folder-icon .f { width: 18px; height: 22px; }
-.hero-vis.float .folder-icon .f1 { left: 6px; top: 10px; } .hero-vis.float .folder-icon .f2 { left: 20px; top: 5px; } .hero-vis.float .folder-icon .f3 { left: 36px; top: 8px; } .hero-vis.float .folder-icon .f4 { left: 16px; top: 15px; }
-.hero-vis.float .folder-text b { font-size: 17px; }
-.hero-vis.float .bar { grid-template-columns: 124px 1fr 92px; gap: 10px; font-size: 14px; }
-.hero-vis.float .bar .track { height: 22px; }
-.hero-vis.float .bar .val { font-size: 15px; }
-.hero-vis.float figcaption { display: none; }
-.hero-vis.float .hero-chips .chip { font-size: 13px; padding: 6px 11px; }
 
 /* ---------- The app: tabs over a stage ---------- */
 .ctabs { position: relative; display: inline-flex; gap: 2px; padding: 4px; margin: 0 0 20px; border-radius: 999px; background: var(--fill-1); border: 1px solid var(--line); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
@@ -71,7 +57,7 @@
 .file span:not(.nm) { font-size: 11px; opacity: .6; }
 .file.sel { background: var(--brand-2); color: #fff; }
 .file.sel span:not(.nm) { opacity: .85; }
-.file.new { opacity: 0; }
+.file.new { opacity: 0; height: 0; padding-top: 0; padding-bottom: 0; overflow: hidden; }
 .ctx { position: absolute; left: 322px; top: 150px; width: 236px; padding: 5px; border-radius: 9px; background: rgba(40,41,52,.86); backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6); box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 0 .5px rgba(255,255,255,.14); opacity: 0; transform: scale(.96); transform-origin: 0 0; color: #F2F2F7; }
 :root[data-theme="light"] .ctx { background: rgba(246,246,248,.88); color: #1D1D1F; box-shadow: 0 16px 40px rgba(0,0,0,.18), 0 0 0 .5px rgba(0,0,0,.12); }
 .ctx div { padding: 4px 9px; border-radius: 5px; font-size: 12.5px; line-height: 17px; }
@@ -87,7 +73,7 @@
 .in .file.sel { animation: fsel 6.5s ease infinite; }
 @keyframes cur { 0% { transform: translate(640px, 330px); } 12%, 20% { transform: translate(300px, 170px); } 30%, 46% { transform: translate(420px, 258px); } 60%, 100% { transform: translate(560px, 360px); } }
 @keyframes ctx { 0%, 14% { opacity: 0; transform: scale(.96); } 18%, 46% { opacity: 1; transform: none; } 50%, 100% { opacity: 0; transform: scale(.98); } }
-@keyframes fnew { 0%, 54% { opacity: 0; transform: translateY(-4px); } 60%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes fnew { 0%, 54% { opacity: 0; height: 0; padding-top: 0; padding-bottom: 0; } 58% { opacity: 0; height: 29px; padding-top: 5px; padding-bottom: 5px; } 62%, 92% { opacity: 1; height: 29px; padding-top: 5px; padding-bottom: 5px; } 96% { opacity: 0; height: 29px; padding-top: 5px; padding-bottom: 5px; } 100% { opacity: 0; height: 0; padding-top: 0; padding-bottom: 0; } }
 @keyframes fsel { 0%, 10% { background: transparent; color: inherit; } 14%, 100% { background: var(--brand-2); color: #fff; } }
 
 /* Key cap and notes over the real shots */
@@ -132,8 +118,6 @@
   .cpanel-copy { border-left: 0; border-top: 1px solid var(--line); padding: 24px; }
 }
 @media (max-width: 760px) {
-  .hero-stage { padding-bottom: 0; }
-  .hero-vis.float { position: static; width: auto; margin-top: 16px; }
   .cstage, .cpanel-vis { min-height: 420px; }
   .cpanel-vis { padding: 18px; }
   .mac-body { grid-template-columns: 1fr; }
@@ -145,6 +129,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .ctx, .file.new, .note, .sheet .parts span { opacity: 1 !important; transform: none !important; }
+  .file.new { height: auto !important; padding-top: 5px !important; padding-bottom: 5px !important; }
 }
 
 

@@ -28,9 +28,11 @@
       current = i;
       buttons.forEach((b, j) => { b.classList.toggle("on", j === i); b.setAttribute("aria-selected", j === i); b.tabIndex = j === i ? 0 : -1; });
       panels.forEach((p, j) => {
+        const was = p.classList.contains("on");
         p.classList.toggle("on", j === i);
         p.classList.remove("in");
-        if (j === i) { void p.offsetWidth; p.classList.add("in"); }
+        if (j === i) { void p.offsetWidth; p.classList.add("in"); p.dispatchEvent(new CustomEvent("panel:show", { bubbles: true })); }
+        else if (was) p.dispatchEvent(new CustomEvent("panel:hide", { bubbles: true }));
       });
       place(sel, buttons[i]);
       arm();
@@ -54,7 +56,7 @@
     }
     // It only runs while on screen.
     new IntersectionObserver(entries => {
-      for (const e of entries) { visible = e.isIntersecting; if (visible) select(current); else { clearTimeout(timer); panels[current].classList.remove("in"); } }
+      for (const e of entries) { visible = e.isIntersecting; if (visible) select(current); else { clearTimeout(timer); panels[current].classList.remove("in"); panels[current].dispatchEvent(new CustomEvent("panel:hide", { bubbles: true })); } }
     }, { threshold: 0.35 }).observe(stage);
     sel.style.transition = "none"; select(current); void sel.offsetWidth; sel.style.transition = "";
     addEventListener("resize", () => place(sel, buttons[current]));
